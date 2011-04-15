@@ -1,4 +1,7 @@
 destination: ./_site
-pygments: true
 exclude:
 - Rakefile
+markdown: rdiscount
+pygments: true
+safe: true
+sass: true
