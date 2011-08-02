@@ -7,14 +7,14 @@ _Updated {{ site.time | date: "%B %d, %Y"}}_
 
 h2. Profile
 
-* I’m 31-years-old technology specialist with 9 years experience in software engineering, concept and UI design, and product management and development. In addition to technology, I have multidisciplinary interests and I’m experienced in working with interdisciplinary and multinational teams.
-* I’ve delivered highly complex systems for consumer mobile and web. I have experience in designing, leading and managing complex software projects. Also, I have wide understanding of creating services for social media and creation and consumption of user-generated content.
+* I’m 31-years-old multidisciplinary technology specialist with 9 years experience in software engineering, concept & UI design, and product management and development.
+* I’ve delivered usable yet highly complex systems for consumer mobile and web. I have experience in designing, leading and managing complex software projects. Also, I have wide understanding of creating services for social media and creation and consumption of user-generated content.
 * I’m founding member of the Comeks Oy (2005-2010), CTO, and responsible for technology from strategy to execution. I’m also the main architect and developer of Comeks web and iPhone applications.
 
 h2. Work experience
 
 h3. Full-stack programmer / Netcycler Oy 2010-Current
-* Developing frontend and backend for one of the most complex applications ever deployed to Google App Engine. It's a second hand swapping service with automatic proposals for matching items, with currently 25K users.
+* Developing frontend and backend for one of the most complex applications ever deployed to Google App Engine. It's a second hand swapping service with automatic proposals for matching items, with currently 45K users.
 * Using Python (Django) in backend and Google Closure Lib with jQuery, Sass, HTML5 in frontend
 * Responsible for deployment & QA tools, setup of continous integration and testing envinronment
 
@@ -22,7 +22,7 @@ h3. Founder / Cto, Comeks Oy — 2005-2010
 * Comeks was a startup founded in 2005, funded by Accel Partners, developing tools for creating and sharing fun and visual messages online or in mobile. Reached 250K users before shutdown.
 * Comeks was also doing consultation projects in multiple fields varying from concept design to low-level technical implementations.
 * Variety of mobile software projects for software service providers and handset manufacturers
-* Large Web/CMS projects for finnish digital agencies and media customers (Yle/MTV3).
+* Large Web/CMS projects for Finnish digital agencies and media corporations.
 
 h3. Flash developer / Phenomena Finland Oy — 2005
 * Freelancer / Flash web sites
@@ -56,10 +56,10 @@ h3. Technical Skills:
 h4. Frontend:
 
 * W3C compliant CSS and xhtml, CSS3, HTML5, AJAX, JavaScript, Flash/Flex development
-* Usage of varied frameworks & tools: Backbone.js, CoffeeScript, Google Closure lib, jQuery, Sass, CSS frameworks
+* Usage of modern frameworks & tools: Backbone.js, CoffeeScript, Google Closure lib, jQuery, Sass, CSS frameworks
 * Frontend performance debugging & optimization
 * Social Media Apps: Facebook, Twitter, etc
-* SEO, accessibility
+* SEO, accessibility, microdata
 
 h4. Backend
 * Experienced in creating scalable and high speed web services for LAMP, J2EE & Google App Engine
@@ -70,7 +70,7 @@ h4. Backend
 * Administration skills: Linux, OSX, Windows
 
 h4. Mobile platforms:
-* iPhone, J2Me, Symbian and Android application development
+* iOS, J2Me, Symbian and Android application development
 * Mobile web
 
 h4. Programming languages, technologies and techniques:
