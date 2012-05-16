@@ -2,8 +2,8 @@
 layout: page
 title: "Resume"
 date: 2012-05-16 21:14
-comments: true
-sharing: true
+comments: false
+sharing: false
 footer: true
 ---
 ##Profile
@@ -32,17 +32,21 @@ Large Web/CMS projects for Finnish digital agencies and media corporations.
 
 ###Director & C++ developer / Cartes — 2002-2004
 Large freelance project for this art and research organization
-Performance creator tool for artists. With the tool it’s possible to create media performances and control media elements (video, sound, bitmaps) by using different kinds of movement and sound sensors.
+Performance creator tool for artists. With the tool it’s possible to create
+media performances and control media elements (video, sound, bitmaps)
+by using different kinds of movement and sound sensors.
 
 ###Java developer / Tampere University Of Technology / Digital Media Institute / hypermedia Laboratory — 2001
-Web-based learning environments. Design and technical implementation of web-based learning tools. Design and creation of electronic study material.
+Web-based learning environments. Design and technical implementation of
+web-based learning tools. Design and creation of electronic study material.
 
 ##Education
 ###Helsinki University Of Technology — M.sc., Feb 2007
 - Dept. of Computer Science and Engineering. Digital Content Production
 
 ###International Design Business Management (IDBM) 2003-2004.
-- Joint program between HUT, Helsinki School of Economics and University of Art and Design Helsinki.
+- Joint program between HUT, Helsinki School of Economics and University of
+Art and Design Helsinki.
 
 ###Instituto Tecnológico Y De Estudios Superiores De Monterrey – 2002-2003
 - Studies in Spanish, Art history, Politics and Graphic design
@@ -54,22 +58,24 @@ Web-based learning environments. Design and technical implementation of web-base
 ###Technical Skills:
 I design and build web and mobile services.
 
-I’m familiar with modern software technologies, having several years of
-hands-on expertise and versatile understanding on building software products.
+I’m expert on building software based on modern software technologies,
+having several years of hands-on expertise and versatile skills.
 
 ###Frontend:
 - CSS3, HTML5, AJAX, JavaScript
 - Flash/Flex development
-- Usage of modern frameworks & tools: Backbone.js, CoffeeScript, Google Closure lib, jQuery, Sass, CSS frameworks
+- Usage of modern frameworks & tools: Backbone.js, CoffeeScript,
+Google Closure lib, jQuery, Sass, CSS frameworks
 - Performance optimization
 - SEO, accessibility, microdata
 
 ###Backend
-- Experienced in creating scalable and high speed web services for LAMP, J2EE & Python
+- Experienced in creating scalable and high speed web services for LAMP,
+J2EE & Python
 - Python: Django, Google App Engine, Flask
 - Java frameworks/technologies
 - PHP based CMSes: Drupal, WordPress
-- Performance optimization: caching, reverse proxies, MySQL, Apache, Nginx
+- Server optimization: caching, reverse proxies, MySQL, Apache/Nginx
 - Administration skills: Linux, OSX, Windows
 
 ###Mobile platforms:
@@ -82,15 +88,17 @@ hands-on expertise and versatile understanding on building software products.
 - Version control: Git, Mercurial, SVN
 - Software architecture design, UML
 - Agile methods: Scrum, Kanban, TDD
-- Testing: unit testing, software testing frameworks, Selenium, CI (Hudson/Jenkins)
+- Testing: unit testing, software testing frameworks, Selenium, CI (Jenkins)
 
 ###Other Skills:
 - Technology strategy and management
-- Product and project management, new product development, innovation & concept design
+- Product and project management, new product development, innovation &
+concept design
 - Productivity tools, GTD
 - Entrepreneurial, Start-up Focus
 - UI & UX design: theory & practice
-- Media tools: production, visual and photo-editing, sound and music production and video editing, photography
+- Media tools: production, visual and photo-editing, sound and music production
+and video editing, photography
 
 ###Languages:
 - Finnish, English, Spanish and Swedish
