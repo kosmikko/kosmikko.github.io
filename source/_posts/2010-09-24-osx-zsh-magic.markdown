@@ -11,6 +11,8 @@ Terminal is perfect tool for hackers but it can increase anyones productivity.
 
 ZSH is my default shell in Mac now. Read [My Extravagant Zsh Prompt](http://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/ or "zsh: The last shell you'll ever need!":http://friedcpu.wordpress.com/2007/07/24/zsh-the-last-shell-youll-ever-need/) why you should choose ZSH over OSX's default Bash.
 
+<!-- more -->
+
 ### Tip 1: Use key bindings.
 
 Here are some of my favourites:

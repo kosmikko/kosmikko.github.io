@@ -22,9 +22,11 @@ convert PDF to mobi using Calibre (see below)
 
 [Calibre][] for managing and syncing your e-books. It seems to be buggy
 in the newest release (calibre-0.7.20), but old releases can be found
-from [SourceForge][].\
-To convert a pdf to a mobibook, run:\
-`/Applications/calibre.app/Contents/Resources/loaders/ebook-convert input-filename.pdf output-filename.mobi`
+from [SourceForge][].
+
+To convert a pdf to a mobibook, run:
+
+  `/Applications/calibre.app/Contents/Resources/loaders/ebook-convert input-filename.pdf output-filename.mobi`
 
 ### Ephemera
 

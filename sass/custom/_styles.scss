@@ -1,2 +1,58 @@
 // This File is imported last, and will override other styles in the cascade
 // Add styles here to make changes without digging in too much
+
+html { background: #0F0900; }
+
+body > header {
+  background: transparent;
+  padding: 0.5em 0.5em 0.5em 0;
+  h1 {
+    font-size: 0.8em;
+  }
+}
+
+aside.sidebar{
+  -moz-border-radius-topright: 0.4em;
+  -webkit-border-radius: 0 0.4em 0 0;
+  border-radius: 0 0.4em 0 0;
+}
+
+.collapse-sidebar .toggle-sidebar {
+  -moz-border-radius-topright: 0.4em;
+  -webkit-border-radius: 0 0.4em 0 0;
+  border-radius: 0 0.4em 0 0;
+}
+@media only screen and (min-width: 1040px) {
+
+  body > nav {
+    -moz-border-radius: 0.4em;
+    -webkit-border-radius: 0.4em;
+    border-radius:0.4em;
+    margin-bottom: 1em;
+  }
+
+ #main{
+      -moz-border-radius-topleft: 0.4em;
+      -moz-border-radius-topright: 0.4em;
+      -webkit-border-radius: 0.4em 0.4em 0 0;
+      border-radius: 0.4em 0.4em 0 0;
+  }
+
+  #content{
+      -moz-border-radius-topleft: 0.4em;
+      -webkit-border-radius: 0.4em 0 0 0;
+      border-radius: 0.4em 0 0 0;
+  }
+
+  #content .blog-index a[rel="full-article"]{
+      -webkit-border-radius: 6px;
+      -moz-border-radius: 6px;
+      border-radius: 6px;
+  }
+  body > footer{
+      -moz-border-radius-bottomleft: 0.4em;
+      -moz-border-radius-bottomright: 0.4em;
+      -webkit-border-radius: 0 0 0.4em 0.4em;
+      border-radius: 0 0 0.4em 0.4em;
+  }
+}

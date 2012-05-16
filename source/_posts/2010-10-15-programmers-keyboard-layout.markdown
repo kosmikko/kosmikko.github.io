@@ -18,6 +18,8 @@ issues with VIM key mappings and having to relearn everything would
 require a lot of practicing. So instead I based mine on the Finnish
 layout.
 
+<!-- more -->
+
 ### ml-keyboard
 
 ![][]

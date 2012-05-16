@@ -10,6 +10,8 @@ typing in the long run. I’ve extendend the [oh-my-zsh project][] with my
 [own plugin][] for Google App Engine, but you can easily just add these
 to your .zshrc.
 
+<!-- more -->
+
 ### Uploading app
 
 To use this alias you need to define GAE\_EMAIL and GAE\_PASS in your

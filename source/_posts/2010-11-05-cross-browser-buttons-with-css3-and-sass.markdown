@@ -14,6 +14,8 @@ One solution to this is using [Sass][]. Especially Sass mixins and
 write. Combine that with [CSS3Pie][] to add IE support and you have
 quite elegant solution for making cross-browser supported CSS.
 
+<!-- more -->
+
 ### Making buttons
 
 Here’s one way of making nice looking buttons with pure CSS3. Rounded
