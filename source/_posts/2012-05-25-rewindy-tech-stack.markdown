@@ -47,7 +47,7 @@ Provides support for writing external scripts in Flask. Think manage.py in Djang
 User session management. Our login solution is built on top of Flask-Login and [passlib](http://pypi.python.org/pypi/passlib)
 
 ## Redis & RQ
-[RQ](http://python-rq.org/) is a Redis-based simple library for queuing tasks and processing them on background. It works great for our simple needs, and avoids the complexity of Celery and the likes. Redis To Go(https://devcenter.heroku.com/articles/redistogo) has a Heroku addon.
+[RQ](http://python-rq.org/) is a Redis-based simple library for queuing tasks and processing them on background. It works great for our simple needs, and avoids the complexity of Celery and the likes. [Redis To Go](https://devcenter.heroku.com/articles/redistogo) has a Heroku addon.
 
 #Frontend
 
