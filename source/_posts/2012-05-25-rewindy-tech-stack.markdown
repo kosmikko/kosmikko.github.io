@@ -161,3 +161,6 @@ We haven't had too much time to write acceptance/full-stack tests yet, but so fa
 
 ##Backend unit tests
 We are using basic [unittest](http://docs.python.org/library/unittest.html) + [Flask-testing](http://packages.python.org/Flask-Testing/) extension and running our tests with [nose](https://github.com/nose-devs/nose).
+
+## Updates
+Join in the discussion on [Hacker News](http://news.ycombinator.com/item?id=4024923)
