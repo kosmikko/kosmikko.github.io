@@ -72,7 +72,11 @@ This plugin provides a simple, convention based mechanism to create bi-direction
 Reusable validation rules both to validate your model and to validate form input, as well as providing a simple way of notifying users about errors when they are populating forms. [Read more](http://thedersen.com/2011/12/28/backbonevalidation/)
 
 ## [CoffeeScript](http://coffeescript.org/)
-With CoffeeScript, writing JavaScript becomes fun again. Code is cleaner and more verbose, leading to faster development and less bugs. Sure there's opinions [against it](http://ryanflorence.com/2011/case-against-coffeescript/), but seems that many have [changed their opinion](http://ryanflorence.com/2012/javascript-coffeescript-rewrite/)? Just saying that you should try it. I'm not going back to vanilla JS. Debugging is not an issue when you use require.js. And plz don't make those uncomprehensible magic one-liners.
+With CoffeeScript, writing JavaScript becomes fun again.
+Code is cleaner and less verbose, leading to faster development and less bugs.
+Sure there's opinions [against it](http://ryanflorence.com/2011/case-against-coffeescript/), but seems that many have [changed their opinion](http://ryanflorence.com/2012/javascript-coffeescript-rewrite/)?
+Just saying that you should try it. I love it and I'm not going back to vanilla JS. Debugging is not an issue when you use small files with require.js.
+And plz don't make those uncomprehensible magic one-liners.
 
 - [The Little Book on CoffeeScript](http://arcturo.github.com/library/coffeescript/)
 - [Smooth CoffeeScript — Interactive Edition](http://autotelicum.github.com/Smooth-CoffeeScript/interactive/interactive-coffeescript.html)
