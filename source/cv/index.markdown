@@ -1,3 +1,12 @@
+---
+layout: page
+title: "Resume"
+date: 2012-07-03 13:54
+comments: false
+sharing: false
+footer: true
+---
+
 ##Profile
 - I’m 32 years old multidisciplinary technology specialist with over 10 years experience in software engineering, business and customer development, concept & UX design, and new product management and development.
 - I design and build web and mobile services for consumers. I have experience in leading and managing software projects using minimal resources while producing high quality products.
