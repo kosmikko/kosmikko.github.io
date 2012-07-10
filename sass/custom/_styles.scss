@@ -1,34 +1,64 @@
 // This File is imported last, and will override other styles in the cascade
 // Add styles here to make changes without digging in too much
 
-html { background: #0F0900; }
+html { background: #FFF; }
 
 body > header {
   background: transparent;
   padding: 0.5em 0.5em 0.5em 0;
   h1 {
     font-size: 0.8em;
+    a, a:visited, a:hover { color: #6B6B6B;}
   }
 }
 
+body > header {
+  padding-left: 18px;
+}
+.toggle-sidebar:after {
+  background-color: #fff;
+}
 aside.sidebar{
   -moz-border-radius-topright: 0.4em;
   -webkit-border-radius: 0 0.4em 0 0;
   border-radius: 0 0.4em 0 0;
 }
 
+
 .collapse-sidebar .toggle-sidebar {
   -moz-border-radius-topright: 0.4em;
   -webkit-border-radius: 0 0.4em 0 0;
   border-radius: 0 0.4em 0 0;
 }
-@media only screen and (min-width: 1040px) {
 
+body > nav, body > footer {
+  border: none;
+  background: none;
+}
+
+#content, #main {
+  background: white;
+}
+
+@media only screen and (min-width: 480px) {
+  body > header {
+    padding-left: 25px;
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  body > header {
+    padding-left: 35px;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  body > header {
+    padding-left: 55px;
+  }
   body > nav {
-    -moz-border-radius: 0.4em;
-    -webkit-border-radius: 0.4em;
-    border-radius:0.4em;
     margin-bottom: 1em;
+    padding-right: 0;
   }
 
  #main{
@@ -56,3 +86,4 @@ aside.sidebar{
       border-radius: 0 0 0.4em 0.4em;
   }
 }
+
