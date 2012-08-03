@@ -83,3 +83,5 @@ If you decide to go with Backbone, see the design choices made in these Backbone
 - [Backbone.Marionette](https://github.com/derickbailey/backbone.marionette)
 
 If you're not familiar with software design patterns I recommend reading still relevant [Gang of Four's "Design Patterns"](http://en.wikipedia.org/wiki/Design_Patterns) or ["Patterns of Enterprise Application Architecture" by Martin Fowler](http://www.amazon.com/Patterns-Enterprise-Application-Architecture-Martin/dp/0321127420). Also Addy Osmani has written quite many [detailed](http://addyosmani.com/largescalejavascript/) [articles](http://addyosmani.com/resources/essentialjsdesignpatterns/book/) on patterns for large JavaScript applications.
+
+Join in the discussion on [Hacker News](http://news.ycombinator.com/item?id=4334358)
