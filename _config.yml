@@ -1,7 +1,0 @@
-destination: ./_site
-exclude:
-- Rakefile
-markdown: rdiscount
-pygments: true
-safe: true
-sass: true
