@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Meta-->
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <title>Posts | mikkolehtinen.com</title>
+    <meta name="description" content="When your website appears in search results in say Google, the text here will be shown underneath your website's title.">
+    <meta name="keywords" content="place, your, website, keywoards, here, keep, them, related, to, the, content, of, your, website">
+    <meta name="author" content="Mikko Lehtinen"><meta http-equiv="X-Powered-By" content="DocPad"/>
+    <meta name="viewport" content="width=device-width">
+    <!-- Icons-->
+    <link rel="shortcut icon" href="img/favicon.png"><!--[if lt IE 9]>
+    <script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <!-- Styles--><link rel="stylesheet" href="/styles/monokai.css" /><link rel="stylesheet" href="/styles/main.css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" type="text/css">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" type="text/css">
+  </head>
+  <body>
+    <header class="logo">
+      <hgroup>
+        <h1><a href="/">mikkolehtinen.com</a></h1>
+      </hgroup>
+    </header>
+    <article id="maincolumn">
+      <section id="content" class="content">
+<div class="blog-index">
+  <article class="post">
+    <header>
+      <h1><a href="/blog/2012/08/03/structuring-complex-backbone-dot-js-apps/">Structuring complex Backbone.js apps</a></h1>
+      <p class="meta">Aug 03 2012
+      </p>
+    </header>
+    <section class="content"><p>Building a more complex  JavaScript app can easily get out of hand if no effort is put into architecturing the application.  In this post I&#39;m overviewing some of the most common higher level architectural patterns and concerns that you should consider when building modular single page apps using Backbone.js.
+
+</p>
+<p>Transition from building traditional web apps doing full page reloads into dynamic single page app often requires rethinking the application architecture. You cannot just hack together some random jQuery code, because you&#39;re storing application state in client and managing it quickly becomes spaghetti. On the other end I&#39;ve seen some bad examples of <a href="http://www.johndcook.com/blog/2009/07/27/baklav-code/">over-engineering</a> your app, so think carefully what kind of architecture suits best for your app. 
+
+</p>
+<p>Single page apps should usually be architectured more like desktop apps, thus Smalltalk-80 like MVC fits quite naturally as a basis for modular, object-oriented application&#39;s architecture. MVC is only part of large application&#39;s architecture though - it only solves how to layer your modules into models, views and controllers.
+
+</p>
+<p>Backbone.js provides an easy starting point for MV* like structure, but it offers just mainly low-level patterns. What about bindings between objects, inter-module communication, dependency loading, handling  JST templates, view layouts, memory management and object disposal? The former are example issues that Backbone.js leaves open for the developer to implement. This has been a design choice with Backbone.js - it has small core but missing parts can be added as libraries when needed. 
+
+</p>
+<p>Now in the case of more complex application you could pick some of the more full stack frameworks, add some of the open source projects providing the missing parts on top of Backbone.js or build your own framework. There&#39;s always a tradeoff with large frameworks, e.g. ember.js provides much more out of the box but it&#39;s 20K LOC and opinionated. 
+
+</p>
+<p>I prefer a micro-framework approach where you have a small core framework and you can easily add additional libraries. Bindings, dependency loading, etc. higher level architectural issues are things that many developers disagree on how to implement those. Backbone.js leaves it open for developers mix and match components that suit their needs best, which is great.
+
+</p>
+<a href="/blog/2012/08/03/structuring-complex-backbone-dot-js-apps/" class="small">Read more &raquo;</a></section>
+  </article>
+  <article class="post">
+    <header>
+      <h1><a href="/blog/2012/07/10/using-gnu-make-as-frontend-build-tool/">Using GNU Make as a frontend build tool</a></h1>
+      <p class="meta">Jul 10 2012
+      </p>
+    </header>
+    <section class="content"><p>There seems to be hundreds of language specific build tools for everyone&#39;s needs, and somehow I feel that wasted energy could be spent on building more useful things. Often a small <a href="http://en.wikipedia.org/wiki/Make_(software\">Makefile</a>) is all that you need. &#39;make&#39; may seem like complicated tool at first but learning the basics is quick and highly recommended.
+
+</p>
+<p><a href="http://www.gnu.org/software/make/manual/make.html">GNU make</a> has been built for detecting which parts of a program need to be recompiled, and issuing commands to recompile them. The most common use cases for frontend asset building are:
+
+</p>
+<ul>
+<li>You need to concatenate and minify your assets for production use</li>
+<li>You want to compile <em>SASS/LESS/Stylus</em> files to <em>CSS</em> and <em>.coffee</em> files to <em>.js</em> when developing. To make things convenient this should be automatically done on file modification without the need to run any commands.</li>
+<li>You want to run other tasks on file save; such as linting or running tests</li>
+<li>Deploy files to production
+<!-- more -->
+Using &#39;make&#39; is convenient because you don&#39;t need to introduce another dependency for your project since every developer should have &#39;make&#39; preinstalled (as long as they are using Unix based OS). Once you learn it, it&#39;s easily portable, and can be used any project regardless of the environment, avoiding the need to learn language specific build tools. If you build your Makefiles right, it should be just few lines of code, which makes it simple and easy to maintain.</li>
+</ul>
+<p>One thing you will need, is a tool for periodically running &#39;make&#39; . I recommend installing <a href="https://github.com/visionmedia/watch">watch</a> by <a href="https://github.com/visionmedia">TJ Holowaychuck</a>, which excutes a given command on selected interval. This is very lightweight way of detecting file changes, and doesn&#39;t use any processing power when there&#39;s no changes to be compiled (unlike when using many language specific build tools).
+
+</p>
+<pre class="highlighted"><code class="haskell"><span class="title">git</span> clone https://github.com/visionmedia/watch.git
+<span class="title">cd</span> watch
+<span class="title">make</span> install</code></pre>
+<p>Here is a sample Makefile from my <a href="http://www.rewindy.com">Rewindy</a> project:
+</p>
+<script src="https://gist.github.com/3083602.js"> </script>
+
+<p>When you start working on the code, run
+
+</p>
+<pre class="highlighted"><code class="nginx">    <span class="title">make</span> watch</code></pre>
+<p>which runs the necessary commands to compile your asset files immediately after change. Combine this with tools like <a href="http://livereload.com/">LiveReload</a>, and you&#39;ll have a pretty smooth build process.</p>
+<a href="/blog/2012/07/10/using-gnu-make-as-frontend-build-tool/" class="small">Read more &raquo;</a></section>
+  </article>
+  <article class="post">
+    <header>
+      <h1><a href="/blog/2012/06/30/extending-backbone-views-using-mixins/">Extending Backbone views using mixins</a></h1>
+      <p class="meta">Jun 30 2012
+      </p>
+    </header>
+    <section class="content"><p>Sometimes you&#39;d like to have shared methods across classes, but it&#39;s not possible or it doesn&#39;t seem natural to create a shared parent class. CoffeeScript and Underscore make it fairly painless to create reusable patterns for your classes using <a href="http://en.wikipedia.org/wiki/Mixin">mixins</a>.   
+
+</p>
+<p>When using <a href="https://github.com/chaplinjs/chaplin">Chaplin</a>, application views are normally extending CollectionViews and Views. It usually makes sense to make custom subclasses for both, which application views then can extend. Now, lets say I&#39;d like to add Google Analytics tracking functionality for user actions. I&#39;d like add this tracking functionality to both types of views, thus I cannot create a shared parent class for both. 
+
+</p>
+<p>One solution could be to make custom base classes for both types, but that would mean that I would need to copy-paste the same method to both base classes, which would make it ugly and difficult to maintain. In this case we need multiple inheritance, which can be implemented using mixins.
+<!-- more -->
+Our mixin is defined as object literal which has shared attributes and functions required in our views.
+
+</p>
+<script src="https://gist.github.com/3023870.js"> </script>
+
+<p>Then in your base view you can use this mixin with:
+
+</p>
+<script src="https://gist.github.com/3023904.js"> </script>
+
+<p>You can also use Mediator&#39;s publish/subscribe pattern for doing this elegantly, but this could be one alternative way to do it. In my base_extensions.coffee, there&#39;s also view helpers e.g. for i18n and template handling.
+
+</p>
+<p>Mixins are great way to structure your app into smaller and reusable components. Check also Chaplin&#39;s source on how they are using mixin to source in Subscriber which offers functionality to subscribe to global Publish/Subscribe events to any object.</p>
+<a href="/blog/2012/06/30/extending-backbone-views-using-mixins/" class="small">Read more &raquo;</a></section>
+  </article>
+  <article class="post">
+    <header>
+      <h1><a href="/blog/2012/05/25/rewindy-tech-stack/">Rewindy tech stack</a></h1>
+      <p class="meta">May 25 2012
+      </p>
+    </header>
+    <section class="content"><p>I haven&#39;t seen too many <a href="http://blog.fogcreek.com/the-trello-tech-stack/">good</a> blog posts on how to build architecture for a modern, frontend-heavy HTML5 app, so I thought I&#39;d try to explain our stack while choices are still fresh in memory. We are just <a href="http://www.rewindy.com">getting started</a> (just started private alpha) so things will still change and evolve.
+
+</p>
+<p>Don&#39;t reinvent the wheel. I believe that especially in an early-stage startup the best code is the code you don&#39;t need to write yourself(SaaS) and best way to host your server is let someone do that for you (PaaS). When choosing components for <a href="http://www.rewindy.com">Rewindy</a>, we opted for choices that got us moving as fast as possible. Performance and scalability are good to keep on mind but there&#39;s time for optimizing later, if the app succeeds.
+
+</p>
+<p>Plan was to use a third party service or existing component whenever possible instead of building our own, even though sometimes that means making few compromises. That allows us to maximize the development on our core business.  Surely later it makes sense to start replacing suboptimal parts in the system with custom code or servers, if that is needed for cost or performance reasons. Still it&#39;s good to keep in mind that often you don&#39;t need library or framework for that feature, a few lines of code will do just fine. Choose the best tools for the job.
+<!-- more -->
+
+</p>
+<a href="/blog/2012/05/25/rewindy-tech-stack/" class="small">Read more &raquo;</a></section>
+  </article>
+  <article class="post">
+    <header>
+      <h1><a href="/blog/2012-05-16-migrated-to-octopress">Migrated to Octopress</a></h1>
+      <p class="meta">May 16 2012
+      </p>
+    </header>
+    <section class="content"><p>It&#39;s been way too long no blogging, but now I&#39;m starting this blog again.
+I moved away from my <a href="https://github.com/mikkolehtinen/mikkolehtinen.com">custom blogging platform</a> and I&#39;m using <a href="http://octopress.org/">Octopress</a>, hosting
+pages in GitHub.
+
+</p>
+<p>Setup and migration was a snap and only issue was converting old posts written in Textile formatting
+to markdown. <a href="http://johnmacfarlane.net/pandoc/try">This demo</a> of Pandoc
+did help.</p>
+<a href="/blog/2012-05-16-migrated-to-octopress" class="small">Read more &raquo;</a></section>
+  </article>
+  <article class="post">
+    <header>
+      <h1><a href="/blog/2010-11-05-cross-browser-buttons-with-css3-and-sass">Cross-browser buttons with CSS3 and Sass</a></h1>
+      <p class="meta">Nov 05 2010
+      </p>
+    </header>
+    <section class="content"><p>Using CSS3 isn’t quite as easy as it should be. Lots of advanced
+functionality requires using vendor prefixes which easily bloats your
+stylesheet with repetitive properties.
+
+</p>
+<p>One solution to this is using <a href="http://sass-lang.com/">Sass</a>. Especially Sass mixins and
+<a href="http://nex-3.com/posts/89-powerful-color-manipulation-with-sass">color functions</a> can radically reduce the amount of code you need to
+write. Combine that with <a href="http://css3pie.com/">CSS3Pie</a> to add IE support and you have
+quite elegant solution for making cross-browser supported CSS.
+
+</p>
+<!-- more -->
+
+<a href="/blog/2010-11-05-cross-browser-buttons-with-css3-and-sass" class="small">Read more &raquo;</a></section>
+  </article>
+  <article class="post">
+    <header>
+      <h1><a href="/blog/2010-10-28-app-engine-helpers-for-zsh">App Engine helpers for ZSH</a></h1>
+      <p class="meta">Oct 28 2010
+      </p>
+    </header>
+    <section class="content"><p>Here are some zsh helpers for <a href="http://code.google.com/appengine/">Google App Engine</a> will save you lot of
+typing in the long run. I’ve extendend the <a href="http://github.com/mikkolehtinen/oh-my-zsh">oh-my-zsh project</a> with my
+<a href="http://github.com/mikkolehtinen/oh-my-zsh/blob/master/plugins/gae.plugin.zsh">own plugin</a> for Google App Engine, but you can easily just add these
+to your .zshrc.
+
+</p>
+<!-- more -->
+
+<a href="/blog/2010-10-28-app-engine-helpers-for-zsh" class="small">Read more &raquo;</a></section>
+  </article>
+  <article class="post">
+    <header>
+      <h1><a href="/blog/2010-10-26-markup-enabled-notational-velocity">Markup-enabled Notational Velocity</a></h1>
+      <p class="meta">Oct 26 2010
+      </p>
+    </header>
+    <section class="content"><p><a href="http://christiantietze.de/zettelkasten/nv/">Christian Tietze</a> has done great job forking <a href="http://notational.net/">Notational Velocity</a>
+to support previewing markup using <a href="http://textism.com/tools/textile/">Textile</a>, <a href="http://daringfireball.net/projects/markdown/">Markdown</a> or
+<a href="http://fletcherpenney.net/multimarkdown">MultiMarkdown</a>. You can also export text as html, in case your blog
+engine doesn’t support these markup formats. It’s now my favorite tool
+for editing blog posts. Good job!
+
+</p>
+<a href="/blog/2010-10-26-markup-enabled-notational-velocity" class="small">Read more &raquo;</a></section>
+  </article>
+  <article class="post">
+    <header>
+      <h1><a href="/blog/2010-10-15-programmers-keyboard-layout">Programmer's keyboard layout</a></h1>
+      <p class="meta">Oct 15 2010
+      </p>
+    </header>
+    <section class="content"><blockquote>
+<p>True hacker makes his own keyboard!
+
+</p>
+</blockquote>
+<p>Well, maybe not. But many international keyboard layouts suck for
+programming. For example with Finnish keyboard you have to type <em>Alt +
+Shift + 8</em> to get <em>}</em>. Now that’s a pain to type gazillion times a day.
+
+</p>
+<p>To increase my productivity, I decided to create my own keyboard layout
+using <a href="http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;id=Ukelele&amp;_sc=1">Ukelele</a> OSX app. First I was considering using <a href="http://en.wikipedia.org/wiki/Dvorak_Simplified_Keyboard">Dvorak</a> or
+its <a href="http://www.kaufmann.no/roland/dvorak">programmer’s variant</a>, but then I realized it would have its
+issues with VIM key mappings and having to relearn everything would
+require a lot of practicing. So instead I based mine on the Finnish
+layout.
+
+</p>
+<!-- more -->
+
+<a href="/blog/2010-10-15-programmers-keyboard-layout" class="small">Read more &raquo;</a></section>
+  </article>
+  <article class="post">
+    <header>
+      <h1><a href="/blog/2010-10-01-improving-kindle3-experience">Improving Kindle3 experience</a></h1>
+      <p class="meta">Oct 01 2010
+      </p>
+    </header>
+    <section class="content"><p>I just received my new <a href="http://www.amazon.com/Kindle-Wireless-Reader-Wifi-Graphite/dp/B002Y27P3M">Kindle3</a> from Amazon. So far it seems like a
+great device for the price (150 EUR shipped to Finland, including all
+expenses). The screen is great, battery lasts long and size and weight
+are good for e-reader. The UI is still clumsy and feels very outdated,
+but with a little tweaking, it does the job. First things I did was:
+
+</p>
+<a href="/blog/2010-10-01-improving-kindle3-experience" class="small">Read more &raquo;</a></section>
+  </article>
+  <article class="post">
+    <header>
+      <h1><a href="/blog/2010-09-24-osx-zsh-magic">OSX ZSH magic</a></h1>
+      <p class="meta">Sep 24 2010
+      </p>
+    </header>
+    <section class="content"><blockquote>
+Terminal is perfect tool for hackers but it can increase anyones productivity.
+</blockquote>
+
+<p>ZSH is my default shell in Mac now. Read [My Extravagant Zsh Prompt](<a href="http://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/">http://stevelosh.com/blog/2010/02/my-extravagant-zsh-prompt/</a> or &quot;zsh: The last shell you&#39;ll ever need!&quot;:<a href="http://friedcpu.wordpress.com/2007/07/24/zsh-the-last-shell-youll-ever-need/">http://friedcpu.wordpress.com/2007/07/24/zsh-the-last-shell-youll-ever-need/</a>) why you should choose ZSH over OSX&#39;s default Bash.
+
+</p>
+<!-- more -->
+
+<a href="/blog/2010-09-24-osx-zsh-magic" class="small">Read more &raquo;</a></section>
+  </article>
+  <article class="post">
+    <header>
+      <h1><a href="/blog/2010-09-24-decorator-for-executing-a-function-in-a-given-namespace">Decorator for executing a function in a given namespace</a></h1>
+      <p class="meta">Sep 24 2010
+      </p>
+    </header>
+    <section class="content"><p>The 1.3.6 update for App Engine introduced support for <a href="http://code.google.com/appengine/docs/python/multitenancy/multitenancy.html">multitenancy</a> using namespaces. You might want to read the <a href="http://blog.notdot.net/2010/08/New-in-1-3-6-Namespaces">introduction</a> by Nick Johnson to read what it means. Here is a snippet for function decorator allowing you to run function in given namespace. Code is based on <a href="http://www.reddit.com/r/AppEngine/comments/d2xqv/hey_heres_a_little_one_for_python_run_in/">this</a>.
+<!-- more -->
+
+</p>
+<script src="http://gist.github.com/593224.js"> </script><a href="/blog/2010-09-24-decorator-for-executing-a-function-in-a-given-namespace" class="small">Read more &raquo;</a></section>
+  </article>
+</div></section>
+    </article>
+    <aside id="sidebar">
+      <section id="recent-posts">
+        <h2>Recent posts</h2>
+        <ul>
+          <li><a href="/blog/2012/08/03/structuring-complex-backbone-dot-js-apps/">Structuring complex Backbone.js apps</a></li>
+          <li><a href="/blog/2012/07/10/using-gnu-make-as-frontend-build-tool/">Using GNU Make as a frontend build tool</a></li>
+          <li><a href="/blog/2012/06/30/extending-backbone-views-using-mixins/">Extending Backbone views using mixins</a></li>
+          <li><a href="/blog/2012/05/25/rewindy-tech-stack/">Rewindy tech stack</a></li>
+          <li><a href="/blog/2012-05-16-migrated-to-octopress">Migrated to Octopress</a></li>
+          <li><a href="/blog/2010-11-05-cross-browser-buttons-with-css3-and-sass">Cross-browser buttons with CSS3 and Sass</a></li>
+          <li><a href="/blog/2010-10-28-app-engine-helpers-for-zsh">App Engine helpers for ZSH</a></li>
+          <li><a href="/blog/2010-10-26-markup-enabled-notational-velocity">Markup-enabled Notational Velocity</a></li>
+          <li><a href="/blog/2010-10-15-programmers-keyboard-layout">Programmer's keyboard layout</a></li>
+          <li><a href="/blog/2010-10-01-improving-kindle3-experience">Improving Kindle3 experience</a></li>
+          <li><a href="/blog/2010-09-24-osx-zsh-magic">OSX ZSH magic</a></li>
+          <li><a href="/blog/2010-09-24-decorator-for-executing-a-function-in-a-given-namespace">Decorator for executing a function in a given namespace</a></li>
+        </ul>
+      </section>
+      <section id="tweets">
+        <h2>Latest tweets</h2>
+        <li>
+          <datetime>Jan 13 2013
+          </datetime><a href="https://twitter.com/#!/kosmikko/status/290482643106164736" title="View on Twitter">VexFlow: A Music Notation Language and Renderer for the Web http://t.co/U5wophCK</a>
+        </li>
+        <li>
+          <datetime>Jan 09 2013
+          </datetime><a href="https://twitter.com/#!/kosmikko/status/288953779284475904" title="View on Twitter">Impressive hack - KindleBerry Pi http://t.co/Wv6KJ0OW Kindle as a screen for Raspberry Pi</a>
+        </li>
+        <li>
+          <datetime>Jan 07 2013
+          </datetime><a href="https://twitter.com/#!/kosmikko/status/288178184195805184" title="View on Twitter">Why Ideas are a Bad Place to Start a Startup – or – Why Ideas are Evil http://t.co/IWGLHkFK</a>
+        </li>
+        <li>
+          <datetime>Jan 04 2013
+          </datetime><a href="https://twitter.com/#!/kosmikko/status/287202599843790850" title="View on Twitter">Devops reactions http://t.co/sRKivM6Z</a>
+        </li>
+        <li>
+          <datetime>Jan 02 2013
+          </datetime><a href="https://twitter.com/#!/kosmikko/status/286453969822314497" title="View on Twitter">Highlevel testing with CasperJS - Kevin van Zonneveld http://t.co/TKqYu2Mq via @kvz</a>
+        </li>
+      </section>
+    </aside>
+    <!-- Scripts--><script >(function(){
+	// Add the depedency if it doesn't already exist
+if ( typeof io === 'undefined' ) {
+	var t = document.createElement('script');
+	t.type = 'text/javascript';
+	t.async = true;
+	t.src = '/socket.io/socket.io.js';
+	t.onload = function(){
+
+// Listen for the regenerated event
+// and perform a reload of the page when the event occurs
+var socket = io.connect('/docpad-live-reload');
+socket.on('regenerated',function(){
+	document.location.reload();
+});
+
+	};
+	var s = document.getElementsByTagName('script')[0];
+	s.parentNode.insertBefore(t,s);
+}
+})();</script>
+  </body>
+</html>
