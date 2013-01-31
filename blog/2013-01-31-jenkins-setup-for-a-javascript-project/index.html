@@ -1,4 +1,4 @@
-<!DOCTYPE html><html lang="en"><head><!-- Meta--><meta charset="utf-8"><meta http-equiv="content-type" content="text/html; charset=utf-8"><title>Jenkins setup for a JavaScript project | mikkolehtinen.com</title><meta name="description" content="When your website appears in search results in say Google, the text here will be shown underneath your website's title."><meta name="keywords" content="place, your, website, keywoards, here, keep, them, related, to, the, content, of, your, website"><meta name="author" content="Mikko Lehtinen"><meta http-equiv="X-Powered-By" content="DocPad"/><meta name="viewport" content="width=device-width"><!-- Icons--><link rel="shortcut icon" href="img/favicon.png"><!--[if lt IE 9]><script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]--><!-- Styles--><link  rel="stylesheet" href="/styles/monokai.css" /><link  rel="stylesheet" href="/styles/main.css" /><link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" type="text/css"><link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" type="text/css"><script>var _gaq = _gaq || [];
+<!DOCTYPE html><html lang="en"><head><!-- Meta--><meta charset="utf-8"><meta http-equiv="content-type" content="text/html; charset=utf-8"><title>Jenkins setup for a JavaScript project | mikkolehtinen.com</title><meta name="description" content="When your website appears in search results in say Google, the text here will be shown underneath your website's title."><meta name="keywords" content="place, your, website, keywoards, here, keep, them, related, to, the, content, of, your, website"><meta name="author" content="Mikko Lehtinen"><meta http-equiv="X-Powered-By" content="DocPad"/><meta name="viewport" content="width=device-width"><!-- Icons--><link rel="shortcut icon" href="img/favicon.png"><!--[if lt IE 9]><script async src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]--><!-- Styles--><link rel="stylesheet" href="/styles/monokai.css" /><link rel="stylesheet" href="/styles/main.css" /><link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" type="text/css"><link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" type="text/css"><script>var _gaq = _gaq || [];
 _gaq.push(['_setAccount', "UA-18743700-1"]);
 _gaq.push(['_trackPageview']);
 
@@ -121,24 +121,29 @@ clean-coverage:
 <p><img src="/blogimages/coverage.png" alt="Coverage">
 
 </p>
+<p>Here you can see an example of code file with untested lines marked with red. Quite nice way to see where you should add more tests.
+
+</p>
 <h2>Static code analysis &amp; style check</h2>
 <p>We want to use JSHint to check our code for errors and style. We are running JSHint before our unit tests run, so in case of error it&#39;s spotted on unit testing build step. You can also view JSHint results in Jenkins using <em>Report violations</em> plugin with:
 
 </p>
-<pre class="highlighted"><code class="brainfuck"><span class="comment">$(BIN)/jshint</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">config</span> <span class="comment">$(JSHINT_CONFIG)</span> <span class="comment">\</span>
-    <span class="literal">-</span><span class="literal">-</span><span class="comment">jslint</span>-<span class="comment">reporter</span> <span class="comment">\</span>
-    <span class="comment">$(SRC_FILES)</span> <span class="comment">\</span>
-    &gt; <span class="comment">reports/jslint</span>.<span class="comment">xml</span> <span class="comment">||</span> <span class="comment">true</code></pre>
+<pre class="highlighted"><code class="cmake">lint-report:
+    $(BIN)/jshint --config $(JSHINT_CONFIG) \
+        --jslint-reporter \
+        $(SRC_FILES) \
+        &gt; reports/jslint.xml || true</code></pre>
 <p>This is best done as a separate build step, where you call above makefile target and then create a post-build step with <em>Report violations</em> plugin and put the jslint pattern in place.
 
 </p>
 <p>You can also check style with:
 
 </p>
-<pre class="highlighted"><code class="brainfuck"><span class="comment">$(BIN)/jshint</span> <span class="literal">-</span><span class="literal">-</span><span class="comment">config</span> <span class="comment">$(JSHINT_CONFIG)</span> <span class="comment">\</span>
-    <span class="literal">-</span><span class="literal">-</span><span class="comment">checkstyle</span>-<span class="comment">reporter</span> <span class="comment">\</span>
-    <span class="comment">$(SRC_FILES)</span> <span class="comment">\</span>
-    &gt; <span class="comment">reports/checkstyle</span>-<span class="comment">jshint</span>.<span class="comment">xml</span> <span class="comment">||</span> <span class="comment">true</code></pre>
+<pre class="highlighted"><code class="cmake">style-report:
+    $(BIN)/jshint --config $(JSHINT_CONFIG) \
+        --checkstyle-reporter \
+        $(SRC_FILES) \
+        &gt; reports/checkstyle-jshint.xml || true</code></pre>
 <p>And view reports with <em>Publish Checkstyle analysis results</em> post-build step.
 
 </p>
@@ -185,5 +190,5 @@ clean-coverage:
 <ul>
 <li>deploys backend API code to test server after GitHub commit</li>
 </ul>
-<p>There&#39;s no bi-directional dependencies in our case so if API code gets changed, it doesn&#39;t trigger test flow for client code. It would be possible to add this in similar way though, if needed.</p>
+<p>There&#39;s no bi-directional dependencies yet so if API code gets changed, it doesn&#39;t trigger test flow for client code. It would be easy to add this in similar way.</p>
 </div><p class="postmeta"><span>Posted by Mikko Lehtinen</span><date>Jan 31 2013</date><span class="tags">Jenkins,testing</span></p><div class="sharing"><a href="https://twitter.com/share" data-via="kosmikko" data-related="kosmikko" class="twitter-share-button">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script></div></article></section></article><aside id="sidebar"><section id="recent-posts"><h2>Recent posts</h2><ul><li><a href="/blog/2013-01-31-jenkins-setup-for-a-javascript-project">Jenkins setup for a JavaScript project</a></li><li><a href="/blog/2013/01/13/new-mac-setup/">Setting up a new Mac</a></li><li><a href="/blog/2012/08/03/structuring-complex-backbone-dot-js-apps/">Structuring complex Backbone.js apps</a></li><li><a href="/blog/2012/07/10/using-gnu-make-as-frontend-build-tool/">Using GNU Make as a frontend build tool</a></li><li><a href="/blog/2012/06/30/extending-backbone-views-using-mixins/">Extending Backbone views using mixins</a></li><li><a href="/blog/2012/05/25/rewindy-tech-stack/">Rewindy tech stack</a></li><li><a href="/blog/2012-05-16-migrated-to-octopress">Migrated to Octopress</a></li><li><a href="/blog/2010-11-05-cross-browser-buttons-with-css3-and-sass">Cross-browser buttons with CSS3 and Sass</a></li><li><a href="/blog/2010-10-28-app-engine-helpers-for-zsh">App Engine helpers for ZSH</a></li><li><a href="/blog/2010-10-26-markup-enabled-notational-velocity">Markup-enabled Notational Velocity</a></li><li><a href="/blog/2010-10-15-programmers-keyboard-layout">Programmer's keyboard layout</a></li><li><a href="/blog/2010-10-01-improving-kindle3-experience">Improving Kindle3 experience</a></li><li><a href="/blog/2010-09-24-osx-zsh-magic">OSX ZSH magic</a></li><li><a href="/blog/2010-09-24-decorator-for-executing-a-function-in-a-given-namespace">Decorator for executing a function in a given namespace</a></li></ul></section><section id="tweets"><h2>Latest tweets</h2><li><datetime>Jan 29 2013</datetime><a href="https://twitter.com/#!/kosmikko/status/296254455345737728" title="View on Twitter">Full-Spectrum Testing with AngularJS and Testacular http://t.co/6Zr6w1aE</a></li><li><datetime>Jan 29 2013</datetime><a href="https://twitter.com/#!/kosmikko/status/296176247141195776" title="View on Twitter">gr8, sublime text 3 beta available for reg users http://t.co/a8iJpU3u</a></li><li><datetime>Jan 28 2013</datetime><a href="https://twitter.com/#!/kosmikko/status/295891774524755968" title="View on Twitter">Helium - A minimal &amp; responsive frontend framework based on Bootstrap &amp; Foundation https://t.co/IFURd0Tq</a></li><li><datetime>Jan 28 2013</datetime><a href="https://twitter.com/#!/kosmikko/status/295885167917158401" title="View on Twitter">kelly norton: On Layout &amp; Web Performance http://t.co/Aa4lqWj2 via @kellegous</a></li><li><datetime>Jan 25 2013</datetime><a href="https://twitter.com/#!/kosmikko/status/294709999668711424" title="View on Twitter">The future of agile development - Do the right things right and fast http://t.co/nqYA1yta</a></li></section></aside><!-- Scripts--></body></html>
