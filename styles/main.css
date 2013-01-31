@@ -36,6 +36,7 @@ aside#sidebar section a{color:inherit}
 #tweets datetime{display:block;color:#aaa}
 #content{border-right:1px solid #e0e0e0;padding-right:2em}
 article{padding-bottom:4em;}
+article img{max-width:100%}
 article header{position:relative;margin-bottom:1.5em;padding-top:3em}
 article .meta{position:absolute;top:0;text-transform:uppercase;color:#aaa}
 .post .postmeta{color:#aaa;margin-bottom:.8em;font-size:.85em;clear:both;overflow:hidden;}
